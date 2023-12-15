@@ -28,12 +28,18 @@ checkButton.addEventListener("click", () =>
     }
 
     teller++;
-    if (teller > limit)
+    SetTriedText();
+    if (numberInput.value == getal)
+    {
+        Win();
+        return;
+    }
+
+    if (teller > limit - 1)
     {
         Lose();
         return;
     }
-    SetTriedText();
 
     if (teller > (limit / 3))
     {
@@ -53,12 +59,6 @@ checkButton.addEventListener("click", () =>
         SetError("Hoger!");
         return;
     }
-
-    if (numberInput.value == getal)
-    {
-        Win();
-        return;
-    }
 });
 
 helpButton.addEventListener("click", () =>
@@ -74,12 +74,9 @@ helpButton.addEventListener("click", () =>
     var helpNumber2 = getal + helpAssist;
 
     if (helpNumber1 < 1)
-    {
         helpNumber1 = 1;
-    } else if (helpNumber2 > 100)
-    {
+    else if (helpNumber2 > 100)
         helpNumber2 = 100;
-    }
 
     helpButton.textContent = `Het getal is tussen ${ helpNumber1 } en ${ helpNumber2 }`;
 });
@@ -103,9 +100,8 @@ const ShowError = (message) =>
     errorText.innerText = message;
 
     if (errorTimer)
-    {
         clearTimeout(errorTimer);
-    }
+
 
     // Yeni bir timer başlat
     errorTimer = setTimeout(() =>
@@ -160,14 +156,13 @@ const Lose = () =>
     resultImage.src = failGifs[ Math.floor(Math.random() * failGifs.length) ];
     resultText.innerText = "Je hebt verloren!";
     winningNumber.innerText = getal;
-    numberOfTries.innerText = teller;
+    numberOfTries.innerText = "zo veel";
     isGameOver = true
 }
 
 const playAgainButton = document.getElementById("playAgainButton");
 playAgainButton.addEventListener("click", () =>
 {
-    // Refresh the page
     window.location.reload();
 });
 
