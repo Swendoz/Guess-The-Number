@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Raad Het Nummer Spel</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Raad Het Nummer Spel</h1>
+
+			<p>Ik heb een nummer in gedachten tussen 1 en 100. Kan jij het raden?</p>
+
+			<div id="errorText">Can't be</div>
+
+			<div id="triedText"></div>
+
+			<input
+				id="numberInput"
+				type="number"
+				min="1"
+				max="100"
+				placeholder="1-100"
+			/>
+
+			<button id="checkButton">Check</button>
+
+			<div id="triedNumbers"></div>
+
+			<button id="helpButton">Geef een hint</button>
+		</div>
+
+		<div id="resultBox">
+			<img
+				id="resultImage"
+				src="https://media.tenor.com/acr9jnY9RtMAAAAM/ok-bye.gif"
+				alt=""
+			/>
+			<h1 id="resultText">Je hebt gewonnen!</h1>
+			<p>Het nummer was <span id="winningNumber"></span></p>
+			<p>Je hebt <span id="numberOfTries"></span> keer geprobeerd</p>
+			<button id="playAgainButton">Speel opnieuw</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
